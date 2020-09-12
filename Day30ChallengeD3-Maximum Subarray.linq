@@ -12,18 +12,20 @@ void Main()
 	max.Dump();
 }
 
-public int FindMax(int[] arr)
+static int FindMax(int[] arr)
 {
-	int max = arr[0];
-	int currentMax = arr[0];
-	
+	int max = 0;
+	int currentMax = 0;
+
 	for (int i=0;i<arr.Length;i++)
 	{
-		if(currentMax < 0) currentMax = 0;
+		currentMax = currentMax + arr[i];
 		
-		max = Math.Max(currentMax,arr[i]);
+		if(currentMax < 0) currentMax = 0;
+
+		max = Math.Max(currentMax,max);
 	}
-	
+
 	return max;
 }
 
